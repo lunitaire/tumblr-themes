@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description} 
+        <!-- DEFAULT COLORS -->
+        <meta name="color: Background" content="#000000"/>
+        <meta name="color: Text" content="#FFFFFF"/>
+        <meta name="color: Link" content="#FFFFFF"/>
+        <meta name="color: Content" content="#0E0E0E"/>
+        <meta name="color: Post" content="#666666"/>
+        <meta name="color: Sidebar" content="#333333"/>
+        <meta name ="image: Background" content=""/>
+
+        <style type="text/css">
+            #postlinks{
+                position:absolute;
+                font-size:10px;
+                padding:2px;
+                text-align:right;
+                }
+            body{
+                color:{color: Text};
+                font-family:verdana;
+                font-size:11px;
+                background-color:{color: Background};
+                background-image:url({image: Background});
+                background-repeat:repeat;
+                background attachment:fixed;
+                text-align:left;
+            }
+            ol {
+                list-style-type:none;
+                padding: 0px;
+                margin: 0px;
+                }
+            li {
+                padding: 0px;
+                margin: 0px;
+            }
+            h1{
+                color: #d30cfb;
+                font: bold 18px/30px  serif;
+                opacity:0.9;
+                font-variant: small-caps; 
+            }
+            h2 {
+                display: inline;
+                color: #f0f;
+                font-variant: small-caps;
+                size: 14px;
+            }
+            #Content{
+                max-width:1100px;
+                margin-left:100px;
+                background-color:{color: Content};
+                position:absolute;
+                overflow: hidden;
+                opacity:0.9;
+                float: right;
+                
+            }
+            
+            a.content_link:link, a.content_link:visited{
+                color: #d30cfb;
+                font-style: italic;
+                font-size: 10px;    
+                text-decoration: none;	
+                }
+                
+            a.content_link:hover{
+                text-decoration: underline;
+                }
+                
+            a:link, a:visited{
+                color: {color: Link};
+                font-style: none;   
+                text-decoration: none;    
+                }
+                
+            a:hover{
+                text-decoration: underline;
+                }
+
+            a.title:link, a.title:visited, a.title:hover{
+                color: #A020F0;
+                font-style: none;   
+                text-decoration: none;  
+               
+                }
+            a.about:link, a.about:visited, a.about:hover{
+                color: #33d6ff;
+                font-style: italic;   
+                text-decoration: underline;  
+               
+                }
+
+            #Post{
+                opacity:1.0;
+                margin: 25px auto 75px 320px;
+                max-width:650px;
+                padding:2px;
+                float:left;
+                background-color:{color: Post};
+                -moz-border-radius: .5em .5em .5em .5em;
+                border-radius: .5em .5em .5em .5em;
+
+            }
+            .post{
+                margin:12px;
+                padding:5px;
+                background-color:black;
+                -moz-border-radius: .5em .5em .5em .5em;
+                border-radius: .5em .5em .5em .5em;
+
+            }
+            #PermalinkPage{
+                margin:12px;
+                padding:5px;
+                background-color:black;
+                -moz-border-radius: .5em .5em .5em .5em;
+                border-radius: .5em .5em .5em .5em;
+
+            }
+            
+            #description{
+                color: #000;
+                background-color:#fff;
+                width:100%;
+                position:fixed;
+                top: 25px;
+                text-align: center;
+                left: 0px;   
+                opacity: 0.7;
+                height: auto;
+                z-index: 999;
+                padding-bottom: 3px;
+                font-size:12px;
+            }
+            #sidebar {
+                position:fixed;
+                margin-left:15px;
+                margin-top: 10px;
+                padding:5px;
+                max-width: 270px;
+                background-color:{color: Sidebar};
+                padding-left:12px;
+                border-left:12px;
+                -moz-border-radius: .5em .5em .5em .5em;
+                border-radius: .5em .5em .5em .5em;
+                font-size:10px;
+                }
+                
+            #about {
+                color: #6600cc;
+                background-color: white;
+                max-width: 250px;
+                padding: 5px;
+                margin-top:8px;
+                -moz-border-radius: .5em .5em .5em .5em;
+                border-radius: .5em .5em .5em .5em;
+                font-size:11px;
+                }
+            #footer {
+                text-align: center;
+                border-top:10px solid black;
+                clear: both;
+                background-color:{color: Post};
+                padding:5px;
+                max-width: 990px;
+                font-size:10px;
+                margin: 0 auto;
+                }
+            .post img.main_photo {
+                width: 100%;
+            }
+            .post img {
+                max-width: 100%;
+                height: auto;
+                 display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .post .photo img {
+                opacity: 1;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+                margin: 0;
+                line-height: 0;
+            }
+            .tumblr_post.photo p { display: none; }
+            .photoset.photo{
+                margin: 0 auto;
+            }
+            
+            @media (max-width: 500px) {
+                 h1 {
+                   color:purple;
+                    font: bold 12px/20px  serif;
+                    opacity:0.9;
+                    font-variant: small-caps; 
+                 }
+            }
+             .date {
+                    margin: 5px auto;
+                 }
+            
+    }
+        </style>
+    </head>
+    <body>
+        {block:Description}
+            <div id="description">
+            <a href="http://lunitaire.tumblr.com/" class="title"><h1>{Title}</h1></a>
+            </div>
+        {/block:Description}
+        
+
+        <div id="Content">
+        <br><br><br><br><br>
+            <div id="sidebar">
+                <div id="about">
+                <br>
+    <img src="{PortraitURL-64}" style="margin:3px;float:left; border-radius: 100%;"/><br>
+                {Description}<br><br>
+                My other sites:<br>
+                <a href="http://coffeetablescraps.tumblr.com/" class="about">Coffee Table Scraps</a> · My Morgue Files <br>
+                <a href="http://skullbytes.tumblr.com/" class="about">Skullbytes</a> · Art Progress Studyblr <br>
+                <a href="https://lunitaire.deviantart.com" class="about">Deviant Art</a> · Sketches and more <br>
+                                <a href="https://twitter.com/lunitaire" class="about">Twitter</a> · tweet tweet <br>
+                                 <a href="https://instagram.com/lunitair3/" class="about">Instagram</a> · Pretty Photos<br>
+                <a href="http://www.last.fm/user/Lunitaire" class="about">Last.fm</a> · Musical Tastes <br>
+                </div><br>
+<b>Navigation<br>
+            <a href="/ask">Askbox</a> ::
+             <a href="/archive">Archive</a> <br> 
+
+             {block:IndexPage}<div class="pagination">
+            {block:PreviousPage}
+                <a href="{PreviousPage}"><h2>&laquo;</h2> Previous</a>
+            {/block:PreviousPage}
+            {CurrentPage} out of {TotalPages} pages
+            {block:NextPage}
+                <a href="{NextPage}">Next <h2>&raquo;</h2></a> 
+            {/block:NextPage}</b>
+            <br><BR>
+            </div>{/block:IndexPage} 
+
+            </div>
+            
+            
+        <ol id="posts">
+            <div id="Post">
+            {block:Posts}
+                {block:Text}
+                    <li class="post text">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        {Body}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR><BR><br>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+   
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div><br><br><br><br><br><br>
+                    {/block:PermalinkPage}
+                {/block:Text}
+
+                {block:Photo}
+                    <li class="post photo">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        <a href="{PhotoURL-500}"><img src="{PhotoURL-500}" border="0" width="500px"/></a>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target="_blank"" class="details">Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Photo}
+
+                {block:Photoset}
+                    <li class="post photoset">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        {Photoset-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Photoset}
+
+                {block:Quote}
+                    <li class="post quote">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        <p style="background-color: {color: Sidebar}; color:{color: Text}; padding:5px;">"{Quote}"</p>
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Quote}
+
+                {block:Link}
+                    <li class="post link">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Link}
+
+                {block:Chat}
+                    <li class="post chat">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Chat}
+
+                {block:Video}
+                    <li class="post video">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Video}
+
+                {block:Audio}
+                    <li class="post audio">
+                        <div class="date">
+                        {block:Date}
+                        
+                        {block:NewDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:NewDayDate}
+                        
+                        {block:SameDayDate}
+                        <div>{Month} {DayOfMonth}
+                        Posted at {12Hour}{AmPm}</div>
+                        {/block:SameDayDate}    
+                        
+                        {/block:Date}
+                        </div>
+                        {AudioPlayerBlack} 
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                        <a href="{Permalink}" class="content_link">{NoteCountWithLabel}</a> · <a href={ReblogURL} target=”_blank” class=”details”>Reblog</a>
+                    <BR>
+                    {block:HasTags} Tags:
+    {block:Tags} 
+      <a class="tag" href="{TagURL}">#{Tag}</a>
+   {/block:Tags}
+{/block:HasTags}
+                    </li>
+                    {block:PermalinkPage} <div id="PermalinkPage">
+                    
+                    {block:PostNotes}{PostNotes}{/block:PostNotes} </div>
+                    {/block:PermalinkPage}
+                {/block:Audio}
+
+            {/block:Posts}
+            </div>
+        </ol>
+            
+             <p id="footer">
+             {block:Following}
+
+                {block:Followed}
+
+                     <a href="{FollowedURL}"><img src="{FollowedPortraitURL-48}"/></a>
+
+                {/block:Followed}
+
+            {/block:Following}
+             <br> <a href="{RSS}">RSS feed</a><br>
+             This theme was created by and belongs to Lunitaire &copy; 2012.
+        </p>
+        </div>
+    </body>
+</html>
